@@ -1,208 +1,1180 @@
-<!DOCTYPE HTML>
-<!--
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Prologue by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sigortala.net.tr - En Uygun Sigorta Teklifleri</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-		<!-- Header -->
-			<div id="header">
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			line-height: 1.6;
+			color: #333;
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			min-height: 100vh;
+		}
 
-				<div class="top">
+		/* Header */
+		.header-top {
+			background: rgba(255,255,255,0.1);
+			backdrop-filter: blur(10px);
+			padding: 10px 0;
+			color: white;
+		}
 
-					<!-- Logo -->
-						<div id="logo">
-							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
-							<h1 id="title">Jane Doe</h1>
-							<p>Hyperspace Engineer</p>
-						</div>
+		.header-top .container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
-								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
-								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
-							</ul>
-						</nav>
+		.contact-info {
+			display: flex;
+			gap: 30px;
+			align-items: center;
+		}
 
+		.contact-info span {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+
+		.social-icons {
+			display: flex;
+			gap: 15px;
+		}
+
+		.social-icons a {
+			color: white;
+			font-size: 18px;
+			transition: transform 0.3s ease;
+		}
+
+		.social-icons a:hover {
+			transform: translateY(-2px);
+		}
+
+		/* Navigation */
+		nav {
+			background: rgba(255,255,255,0.95);
+			backdrop-filter: blur(20px);
+			padding: 15px 0;
+			position: sticky;
+			top: 0;
+			z-index: 1000;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+		}
+
+		.nav-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.logo {
+			font-size: 28px;
+			font-weight: bold;
+			color: #667eea;
+			text-decoration: none;
+		}
+
+		.nav-menu {
+			display: flex;
+			list-style: none;
+			gap: 30px;
+		}
+
+		.nav-menu a {
+			text-decoration: none;
+			color: #333;
+			font-weight: 500;
+			transition: color 0.3s ease;
+			position: relative;
+		}
+
+		.nav-menu a:hover {
+			color: #667eea;
+		}
+
+		.nav-menu a::after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 2px;
+			bottom: -5px;
+			left: 0;
+			background-color: #667eea;
+			transition: width 0.3s ease;
+		}
+
+		.nav-menu a:hover::after {
+			width: 100%;
+		}
+
+		.dropdown {
+			position: relative;
+		}
+
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background: white;
+			min-width: 250px;
+			box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+			z-index: 1;
+			border-radius: 10px;
+			padding: 10px 0;
+			top: 100%;
+			left: 0;
+			margin-top: 10px;
+		}
+
+		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+
+		.dropdown-content a {
+			display: block;
+			padding: 12px 20px;
+			color: #333;
+			text-decoration: none;
+			transition: background 0.3s ease;
+		}
+
+		.dropdown-content a:hover {
+			background: #f8f9fa;
+			color: #667eea;
+		}
+
+		/* Mobile menu toggle */
+		.mobile-toggle {
+			display: none;
+			flex-direction: column;
+			cursor: pointer;
+		}
+
+		.mobile-toggle span {
+			width: 25px;
+			height: 3px;
+			background: #333;
+			margin: 3px 0;
+			transition: 0.3s;
+		}
+
+		/* Hero Section */
+		.hero {
+			background: linear-gradient(135deg, rgba(102,126,234,0.9), rgba(118,75,162,0.9));
+			padding: 100px 0;
+			text-align: center;
+			color: white;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.hero::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><polygon fill="%23ffffff" fill-opacity="0.1" points="0,300 1000,300 1000,0"/></svg>') no-repeat center center;
+			background-size: cover;
+		}
+
+		.hero-content {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+			position: relative;
+			z-index: 2;
+		}
+
+		.hero h1 {
+			font-size: 3.5em;
+			margin-bottom: 20px;
+			animation: fadeInUp 1s ease;
+		}
+
+		.hero p {
+			font-size: 1.3em;
+			margin-bottom: 30px;
+			animation: fadeInUp 1s ease 0.2s both;
+		}
+
+		.cta-buttons {
+			display: flex;
+			gap: 20px;
+			justify-content: center;
+			flex-wrap: wrap;
+			animation: fadeInUp 1s ease 0.4s both;
+		}
+
+		.btn {
+			display: inline-block;
+			padding: 15px 30px;
+			text-decoration: none;
+			border-radius: 50px;
+			font-weight: 600;
+			transition: all 0.3s ease;
+			cursor: pointer;
+			border: none;
+			font-size: 16px;
+		}
+
+		.btn-primary {
+			background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+			color: white;
+		}
+
+		.btn-secondary {
+			background: transparent;
+			color: white;
+			border: 2px solid white;
+		}
+
+		.btn:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+		}
+
+		/* Features Section */
+		.features {
+			padding: 80px 0;
+			background: white;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
+
+		.section-title {
+			text-align: center;
+			margin-bottom: 60px;
+		}
+
+		.section-title h2 {
+			font-size: 2.5em;
+			color: #333;
+			margin-bottom: 15px;
+		}
+
+		.section-title p {
+			font-size: 1.1em;
+			color: #666;
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		.features-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 40px;
+		}
+
+		.feature-card {
+			background: white;
+			padding: 40px 30px;
+			border-radius: 15px;
+			text-align: center;
+			box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+			transition: transform 0.3s ease;
+			border: 1px solid #f0f0f0;
+		}
+
+		.feature-card:hover {
+			transform: translateY(-10px);
+		}
+
+		.feature-icon {
+			width: 80px;
+			height: 80px;
+			background: linear-gradient(135deg, #667eea, #764ba2);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0 auto 25px;
+			font-size: 30px;
+			color: white;
+		}
+
+		.feature-card h3 {
+			font-size: 1.4em;
+			margin-bottom: 15px;
+			color: #333;
+		}
+
+		.feature-card p {
+			color: #666;
+			line-height: 1.6;
+		}
+
+		/* Products Section */
+		.products {
+			padding: 80px 0;
+			background: linear-gradient(135deg, #f8f9fc 0%, #e6f3ff 100%);
+		}
+
+		.products-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 30px;
+		}
+
+		.product-card {
+			background: white;
+			padding: 30px 25px;
+			border-radius: 15px;
+			text-align: center;
+			transition: all 0.3s ease;
+			box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+			border: 1px solid #e9ecef;
+		}
+
+		.product-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+		}
+
+		.product-card i {
+			font-size: 40px;
+			color: #667eea;
+			margin-bottom: 20px;
+		}
+
+		.product-card h3 {
+			font-size: 1.2em;
+			margin-bottom: 10px;
+			color: #333;
+		}
+
+		/* FAQ Section */
+		.faq {
+			padding: 80px 0;
+			background: white;
+		}
+
+		.faq-item {
+			background: #f8f9fa;
+			margin-bottom: 20px;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+		}
+
+		.faq-question {
+			padding: 25px;
+			cursor: pointer;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background: white;
+			border: none;
+			width: 100%;
+			text-align: left;
+			font-size: 1.1em;
+			font-weight: 600;
+			color: #333;
+			transition: background 0.3s ease;
+		}
+
+		.faq-question:hover {
+			background: #f8f9fa;
+		}
+
+		.faq-answer {
+			padding: 0 25px;
+			max-height: 0;
+			overflow: hidden;
+			transition: all 0.3s ease;
+			background: #f8f9fa;
+		}
+
+		.faq-answer.active {
+			padding: 25px;
+			max-height: 200px;
+		}
+
+		.faq-answer p {
+			color: #666;
+			line-height: 1.6;
+		}
+
+		/* Footer */
+		footer {
+			background: #2c3e50;
+			color: white;
+			padding: 60px 0 20px;
+		}
+
+		.footer-content {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 40px;
+			margin-bottom: 40px;
+		}
+
+		.footer-section h3 {
+			font-size: 1.3em;
+			margin-bottom: 25px;
+			color: #fff;
+		}
+
+		.footer-section ul {
+			list-style: none;
+		}
+
+		.footer-section ul li {
+			margin-bottom: 12px;
+		}
+
+		.footer-section ul li a {
+			color: #bdc3c7;
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		.footer-section ul li a:hover {
+			color: #fff;
+		}
+
+		.footer-bottom {
+			border-top: 1px solid #34495e;
+			padding-top: 20px;
+			text-align: center;
+			color: #bdc3c7;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 20px;
+		}
+
+		.footer-bottom a {
+			color: #bdc3c7;
+			text-decoration: none;
+			margin: 0 10px;
+		}
+
+		.footer-bottom a:hover {
+			color: #fff;
+		}
+
+		/* WhatsApp Button */
+		.whatsapp-btn {
+			position: fixed;
+			bottom: 30px;
+			right: 30px;
+			background: #25d366;
+			color: white;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 25px;
+			text-decoration: none;
+			box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+			transition: all 0.3s ease;
+			z-index: 1000;
+			animation: pulse 2s infinite;
+		}
+
+		.whatsapp-btn:hover {
+			transform: scale(1.1);
+			box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+		}
+
+		/* Animations */
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes pulse {
+			0% {
+				box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+			}
+			70% {
+				box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+			}
+			100% {
+				box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+			}
+		}
+
+		/* Cookie Banner */
+		.cookie-banner {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: rgba(44, 62, 80, 0.95);
+			backdrop-filter: blur(10px);
+			color: white;
+			padding: 20px;
+			z-index: 2000;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			gap: 20px;
+			transform: translateY(100%);
+			transition: transform 0.3s ease;
+		}
+
+		.cookie-banner.show {
+			transform: translateY(0);
+		}
+
+		.cookie-text {
+			flex: 1;
+			min-width: 300px;
+		}
+
+		.cookie-buttons {
+			display: flex;
+			gap: 15px;
+		}
+
+		.cookie-btn {
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-weight: 500;
+			transition: background 0.3s ease;
+		}
+
+		.cookie-accept {
+			background: #667eea;
+			color: white;
+		}
+
+		.cookie-accept:hover {
+			background: #5a67d8;
+		}
+
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.mobile-toggle {
+				display: flex;
+			}
+
+			.nav-menu {
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				right: 0;
+				background: white;
+				flex-direction: column;
+				padding: 20px;
+				box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+			}
+
+			.nav-menu.active {
+				display: flex;
+			}
+
+			.hero h1 {
+				font-size: 2.5em;
+			}
+
+			.hero p {
+				font-size: 1.1em;
+			}
+
+			.cta-buttons {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.contact-info {
+				flex-direction: column;
+				gap: 10px;
+			}
+
+			.footer-bottom {
+				flex-direction: column;
+				text-align: center;
+			}
+
+			.cookie-banner {
+				flex-direction: column;
+				text-align: center;
+			}
+
+			.cookie-text {
+				min-width: auto;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.hero {
+				padding: 60px 0;
+			}
+
+			.hero h1 {
+				font-size: 2em;
+			}
+
+			.section-title h2 {
+				font-size: 2em;
+			}
+
+			.features, .products, .faq {
+				padding: 60px 0;
+			}
+
+			.whatsapp-btn {
+				width: 50px;
+				height: 50px;
+				font-size: 20px;
+				bottom: 20px;
+				right: 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+<!-- Header Top -->
+<div class="header-top">
+	<div class="container">
+		<div class="contact-info">
+			<span><i class="fas fa-envelope"></i> info@sigortala.net.tr</span>
+			<span><i class="fas fa-phone"></i> 0322 505 0 500</span>
+		</div>
+		<div class="social-icons">
+			<a href="#"><i class="fab fa-facebook-f"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-instagram"></i></a>
+			<a href="#"><i class="fab fa-linkedin-in"></i></a>
+			<a href="#"><i class="fab fa-youtube"></i></a>
+		</div>
+	</div>
+</div>
+
+<!-- Navigation -->
+<nav>
+	<div class="nav-container">
+		<a href="#" class="logo">Sigortala.net.tr</a>
+		<ul class="nav-menu">
+			<li><a href="#home">Anasayfa</a></li>
+			<li><a href="#about">Hakkımızda</a></li>
+			<li class="dropdown">
+				<a href="#products">Ürünlerimiz <i class="fas fa-chevron-down"></i></a>
+				<div class="dropdown-content">
+					<a href="#"><i class="fas fa-car"></i> Trafik Sigortası</a>
+					<a href="#"><i class="fas fa-shield-alt"></i> Kasko</a>
+					<a href="#"><i class="fas fa-home"></i> Konut Sigortası</a>
+					<a href="#"><i class="fas fa-mountain"></i> Deprem Sigortası</a>
+					<a href="#"><i class="fas fa-heart"></i> Sağlık Sigortası</a>
+					<a href="#"><i class="fas fa-building"></i> İş Yeri Sigortası</a>
+					<a href="#"><i class="fas fa-tools"></i> Mühendislik Sigortası</a>
+					<a href="#"><i class="fas fa-truck"></i> Nakliyat Sigortası</a>
+					<a href="#"><i class="fas fa-plane"></i> Seyahat Sigortası</a>
 				</div>
+			</li>
+			<li><a href="#quote">Hızlı Teklif</a></li>
+			<li><a href="#contact">İletişim</a></li>
+		</ul>
+		<div class="mobile-toggle">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+</nav>
 
-				<div class="bottom">
+<!-- Hero Section -->
+<section class="hero" id="home">
+	<div class="hero-content">
+		<h1>Neden Sigortala.net.tr?</h1>
+		<p>Trafik sigortası, kasko, konut sigortası, iş yeri sigortası, seyahat sigortası, sağlık sigortası ve daha fazlası için en uygun teklifleri alın. Profesyonel ekibimiz ile 7 gün 24 saat hizmet veriyoruz.</p>
+		<div class="cta-buttons">
+			<a href="#quote" class="btn btn-primary">Hızlı Teklif Al</a>
+			<a href="#about" class="btn btn-secondary">Hakkımızda</a>
+		</div>
+	</div>
+</section>
 
-					<!-- Social Icons -->
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-
+<!-- Features Section -->
+<section class="features" id="about">
+	<div class="container">
+		<div class="section-title">
+			<h2>Neden Bizi Seçmelisiniz?</h2>
+			<p>Sigortanızın günü gelmeden teklif hazırlıyor, ihtiyaçlarınızı karşılayacak en uygun sigorta teklifini sunuyoruz.</p>
+		</div>
+		<div class="features-grid">
+			<div class="feature-card">
+				<div class="feature-icon">
+					<i class="fas fa-dollar-sign"></i>
 				</div>
-
+				<h3>En Uygun Fiyat</h3>
+				<p>En uygun fiyat garantisi veriyoruz. Piyasadaki en iyi fiyatları sizler için araştırıyor ve en uygun teklifleri sunuyoruz.</p>
 			</div>
-
-		<!-- Main -->
-			<div id="main">
-
-				<!-- Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container">
-
-							<header>
-								<h2 class="alt">Hi! I'm <strong>Prologue</strong>, a <a href="http://html5up.net/license">free</a> responsive<br />
-								site template designed by <a href="http://html5up.net">HTML5 UP</a>.</h2>
-								<p>Ligula scelerisque justo sem accumsan diam quis<br />
-								vitae natoque dictum sollicitudin elementum.</p>
-							</header>
-
-							<footer>
-								<a href="#portfolio" class="button scrolly">Magna Aliquam</a>
-							</footer>
-
-						</div>
-					</section>
-
-				<!-- Portfolio -->
-					<section id="portfolio" class="two">
-						<div class="container">
-
-							<header>
-								<h2>Portfolio</h2>
-							</header>
-
-							<p>Vitae natoque dictum etiam semper magnis enim feugiat convallis convallis
-							egestas rhoncus ridiculus in quis risus amet curabitur tempor orci penatibus.
-							Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis
-							fusce hendrerit lacus ridiculus.</p>
-
-							<div class="row">
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-										<header>
-											<h3>Ipsum Feugiat</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-										<header>
-											<h3>Rhoncus Semper</h3>
-										</header>
-									</article>
-								</div>
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-										<header>
-											<h3>Magna Nullam</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-										<header>
-											<h3>Natoque Vitae</h3>
-										</header>
-									</article>
-								</div>
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-										<header>
-											<h3>Dolor Penatibus</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-										<header>
-											<h3>Orci Convallis</h3>
-										</header>
-									</article>
-								</div>
-							</div>
-
-						</div>
-					</section>
-
-				<!-- About Me -->
-					<section id="about" class="three">
-						<div class="container">
-
-							<header>
-								<h2>About Me</h2>
-							</header>
-
-							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
-
-							<p>Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
-							ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
-							laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
-							parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
-							dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
-							ornare iaculis.</p>
-
-						</div>
-					</section>
-
-				<!-- Contact -->
-					<section id="contact" class="four">
-						<div class="container">
-
-							<header>
-								<h2>Contact</h2>
-							</header>
-
-							<p>Elementum sem parturient nulla quam placerat viverra
-							mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
-							donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
-							orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>
-
-							<form method="post" action="#">
-								<div class="row">
-									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
-									<div class="col-12">
-										<textarea name="message" placeholder="Message"></textarea>
-									</div>
-									<div class="col-12">
-										<input type="submit" value="Send Message" />
-									</div>
-								</div>
-							</form>
-
-						</div>
-					</section>
-
+			<div class="feature-card">
+				<div class="feature-icon">
+					<i class="fas fa-rocket"></i>
+				</div>
+				<h3>Çok Pratik</h3>
+				<p>En hızlı ve en kolay yoldan iletişim kuruyoruz. Zamanınızı değerli bulduğumuz için süreçleri hızlandırıyoruz.</p>
 			</div>
-
-		<!-- Footer -->
-			<div id="footer">
-
-				<!-- Copyright -->
-					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-
+			<div class="feature-card">
+				<div class="feature-icon">
+					<i class="fas fa-shield-alt"></i>
+				</div>
+				<h3>Güvenli</h3>
+				<p>Kişisel verilerin korunmasına dikkat ediyoruz. KVKK kapsamında tüm bilgilerinizi güvenle saklıyoruz.</p>
 			</div>
+		</div>
+	</div>
+</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<!-- Products Section -->
+<section class="products" id="products">
+	<div class="container">
+		<div class="section-title">
+			<h2>Ürünlerimiz</h2>
+			<p>Geniş ürün yelpazemiz ile tüm sigorta ihtiyaçlarınızı karşılıyoruz</p>
+		</div>
+		<div class="products-grid">
+			<div class="product-card">
+				<i class="fas fa-car"></i>
+				<h3>Trafik Sigortası</h3>
+			</div>
+			<div class="product-card">
+				<i class="fas fa-shield-alt"></i>
+				<h3>Kasko</h3>
+			</div>
+			<div class="product-card">
+				<i class="fas fa-mountain"></i>
+				<h3>Deprem Sigortası</h3>
+			</div>
+			<div class="product-card">
+				<i class="fas fa-home"></i>
+				<h3>Konut Sigortası</h3>
+			</div>
+			<div class="product-card">
+				<i class="fas fa-heart"></i>
+				<h3>Sağlık Sigortası</h3>
+			</div>
+			<div class="product-card">
+				<i class="fas fa-building"></i>
+				<h3>İş Yeri Sigortası</h3>
+			</div>
+			<div class="product-card">
+				<i class="fas fa-tools"></i>
+				<h3>Mühendislik Sigortası</h3>
+			</div>
+			<div class="product-card">
+				<i class="fas fa-truck"></i>
+				<h3>Nakliyat Sigortası</h3>
+			</div>
+			<div class="product-card">
+				<i class="fas fa-plane"></i>
+				<h3>Seyahat Sigortası</h3>
+			</div>
+		</div>
+	</div>
+</section>
 
-	</body>
+<!-- FAQ Section -->
+<section class="faq">
+	<div class="container">
+		<div class="section-title">
+			<h2>Sık Sorulan Sorular</h2>
+			<p>En çok merak edilen sorular ve cevapları</p>
+		</div>
+		<div class="faq-item">
+			<button class="faq-question">
+				Yeni Tescil Araçlarda 15 Gün Geçerlilik Kalktı mı?
+				<i class="fas fa-chevron-down"></i>
+			</button>
+			<div class="faq-answer">
+				<p>Trafik Sigortasında aracı aldığınızda 15 gün trafikte geçerlilik hakkınız hala devam etmektedir. Çünkü bizler satıştan iptal yaparken sistem sadece 15 gün ileri tarih atıp iptal etmemize izin vermektedir.</p>
+			</div>
+		</div>
+		<div class="faq-item">
+			<button class="faq-question">
+				Trafik Sigortasında Meslek İndirimi Mevcut mu?
+				<i class="fas fa-chevron-down"></i>
+			</button>
+			<div class="faq-answer">
+				<p>Evet, bazı meslek grupları için özel indirimler mevcuttur. Detaylı bilgi için bizimle iletişime geçebilirsiniz.</p>
+			</div>
+		</div>
+		<div class="faq-item">
+			<button class="faq-question">
+				Tüm Trafik Sigortalarında Çekici Hizmeti Var mı?
+				<i class="fas fa-chevron-down"></i>
+			</button>
+			<div class="faq-answer">
+				<p>Hayır, çekici hizmeti tüm poliçelerde bulunmamaktadır. Poliçe detaylarını inceleyerek hangi hizmetlerin dahil olduğunu öğrenebilirsiniz.</p>
+			</div>
+		</div>
+		<div class="faq-item">
+			<button class="faq-question">
+				Sigortamın Günü Geçerse Ne Olur?
+				<i class="fas fa-chevron-down"></i>
+			</button>
+			<div class="faq-answer">
+				<p>Sigorta sürenizin dolması durumunda, aracınızın trafikte dolaşması yasal olmayacaktır. En kısa sürede yenileme yapmanızı öneririz.</p>
+			</div>
+		</div>
+		<div class="faq-item">
+			<button class="faq-question">
+				Kısa Süreli Sigorta Yaptırabilir Misiniz?
+				<i class="fas fa-chevron-down"></i>
+			</button>
+			<div class="faq-answer">
+				<p>Evet, özel durumlar için kısa süreli sigorta çözümleri sunuyoruz. Detaylar için bizimle iletişime geçin.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Footer -->
+<footer id="contact">
+	<div class="container">
+		<div class="footer-content">
+			<div class="footer-section">
+				<h3>Ürünlerimiz</h3>
+				<ul>
+					<li><a href="#">Trafik Sigortası</a></li>
+					<li><a href="#">Kasko Sigortası</a></li>
+					<li><a href="#">Konut Sigortası</a></li>
+					<li><a href="#">Deprem Sigortası</a></li>
+					<li><a href="#">Seyahat Sigortası</a></li>
+					<li><a href="#">Sağlık Sigortası</a></li>
+					<li><a href="#">İş Yeri Sigortası</a></li>
+					<li><a href="#">Nakliyat Sigortası</a></li>
+					<li><a href="#">Mühendislik Sigortası</a></li>
+				</ul>
+			</div>
+			<div class="footer-section">
+				<h3>Site Haritası</h3>
+				<ul>
+					<li><a href="#">Anasayfa</a></li>
+					<li><a href="#">Hakkımızda</a></li>
+					<li><a href="#">Basında Biz</a></li>
+					<li><a href="#">Hesap Numaralarımız</a></li>
+					<li><a href="#">Hızlı Teklif</a></li>
+					<li><a href="#">Bilgi Bankası</a></li>
+					<li><a href="#">Sigorta Sözlüğü</a></li>
+					<li><a href="#">İletişim</a></li>
+				</ul>
+			</div>
+			<div class="footer-section">
+				<h3>İletişim</h3>
+				<ul>
+					<li><i class="fas fa-map-marker-alt"></i> Çınarlı Mah. Ziyapaşa Blv. Mustafa Paksoy Apt. Migros Jet Üzeri No:45/1 Seyhan/ADANA</li>
+					<li><i class="fas fa-phone"></i> 0322 505 0 500</li>
+					<li><i class="fas fa-mobile-alt"></i> 0501 324 48 46</li>
+					<li><i class="fas fa-envelope"></i> info@sigortala.net.tr</li>
+				</ul>
+			</div>
+			<div class="footer-section">
+				<h3>Bizi Takip Edin</h3>
+				<div class="social-icons">
+					<a href="#"><i class="fab fa-facebook-f"></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></a>
+					<a href="#"><i class="fab fa-instagram"></i></a>
+					<a href="#"><i class="fab fa-linkedin-in"></i></a>
+					<a href="#"><i class="fab fa-youtube"></i></a>
+					<a href="#" class="whatsapp-social"><i class="fab fa-whatsapp"></i></a>
+				</div>
+				<div style="margin-top: 20px;">
+					<p>Sektörle ilgili haber, duyuru ve kampanyalar hakkında bilgi almak için:</p>
+					<div style="margin-top: 10px;">
+						<input type="email" placeholder="E-posta adresiniz" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 200px;">
+						<button style="padding: 10px 15px; background: #667eea; color: white; border: none; border-radius: 5px; margin-left: 5px; cursor: pointer;">Abone Ol</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div>
+				<p>&copy; 2025 Sigortala.net.tr | Tüm Hakları Saklıdır.</p>
+			</div>
+			<div>
+				<a href="#">Gizlilik Politikası</a>
+				<a href="#">Kullanıcı Sözleşmesi</a>
+				<a href="#">Çerez Politikası</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/905013244846" class="whatsapp-btn" target="_blank">
+	<i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookieBanner">
+	<div class="cookie-text">
+		<p>Size daha hızlı ve güvenli hizmet sunabilmek için web sitemizde çerez kullanmaktayız. Detaylı bilgi için Çerez Politikamızı inceleyebilirsiniz.</p>
+	</div>
+	<div class="cookie-buttons">
+		<button class="cookie-btn cookie-accept" onclick="acceptCookies()">Anladım</button>
+	</div>
+</div>
+
+<script>
+	// Mobile Menu Toggle
+	document.querySelector('.mobile-toggle').addEventListener('click', function() {
+		document.querySelector('.nav-menu').classList.toggle('active');
+	});
+
+	// Smooth Scrolling
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+			const target = document.querySelector(this.getAttribute('href'));
+			if (target) {
+				target.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start'
+				});
+			}
+		});
+	});
+
+	// FAQ Toggle
+	document.querySelectorAll('.faq-question').forEach(button => {
+		button.addEventListener('click', function() {
+			const answer = this.nextElementSibling;
+			const isActive = answer.classList.contains('active');
+
+			// Close all FAQ items
+			document.querySelectorAll('.faq-answer').forEach(item => {
+				item.classList.remove('active');
+			});
+
+			document.querySelectorAll('.faq-question i').forEach(icon => {
+				icon.style.transform = 'rotate(0deg)';
+			});
+
+			// Open clicked item if it wasn't active
+			if (!isActive) {
+				answer.classList.add('active');
+				this.querySelector('i').style.transform = 'rotate(180deg)';
+			}
+		});
+	});
+
+	// Cookie Banner
+	function showCookieBanner() {
+		if (!localStorage.getItem('cookiesAccepted')) {
+			document.getElementById('cookieBanner').classList.add('show');
+		}
+	}
+
+	function acceptCookies() {
+		localStorage.setItem('cookiesAccepted', 'true');
+		document.getElementById('cookieBanner').classList.remove('show');
+	}
+
+	// Show cookie banner on page load
+	setTimeout(showCookieBanner, 2000);
+
+	// Navbar scroll effect
+	window.addEventListener('scroll', function() {
+		const nav = document.querySelector('nav');
+		if (window.scrollY > 100) {
+			nav.style.background = 'rgba(255,255,255,0.98)';
+		} else {
+			nav.style.background = 'rgba(255,255,255,0.95)';
+		}
+	});
+
+	// Animation on scroll
+	const observerOptions = {
+		threshold: 0.1,
+		rootMargin: '0px 0px -50px 0px'
+	};
+
+	const observer = new IntersectionObserver(function(entries) {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.style.opacity = '1';
+				entry.target.style.transform = 'translateY(0)';
+			}
+		});
+	}, observerOptions);
+
+	// Observe elements for animation
+	document.querySelectorAll('.feature-card, .product-card, .faq-item').forEach(el => {
+		el.style.opacity = '0';
+		el.style.transform = 'translateY(20px)';
+		el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+		observer.observe(el);
+	});
+
+	// Add loading animation
+	window.addEventListener('load', function() {
+		document.body.classList.add('loaded');
+	});
+</script>
+
+<style>
+	/* Additional styles for footer and interactions */
+	.footer-section ul li {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.footer-section ul li i {
+		color: #667eea;
+		width: 16px;
+	}
+
+	.social-icons .whatsapp-social {
+		background: #25d366;
+		padding: 8px;
+		border-radius: 50%;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 35px;
+		height: 35px;
+	}
+
+	.social-icons a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 35px;
+		height: 35px;
+		background: #34495e;
+		border-radius: 50%;
+		margin-right: 10px;
+		transition: all 0.3s ease;
+	}
+
+	.social-icons a:hover {
+		transform: translateY(-2px);
+		background: #667eea;
+	}
+
+	.footer-section input[type="email"] {
+		background: #34495e;
+		border: 1px solid #4a5d6b;
+		color: white;
+	}
+
+	.footer-section input[type="email"]::placeholder {
+		color: #bdc3c7;
+	}
+
+	.footer-section input[type="email"]:focus {
+		outline: none;
+		border-color: #667eea;
+	}
+
+	.footer-section button:hover {
+		background: #5a67d8;
+		transform: translateY(-1px);
+	}
+
+	/* Loading animation */
+	body:not(.loaded) * {
+		animation-play-state: paused !important;
+	}
+
+	.loaded .hero-content {
+		animation: fadeInUp 1s ease;
+	}
+
+	/* Improved mobile responsiveness for footer */
+	@media (max-width: 768px) {
+		.footer-section ul li {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 5px;
+			margin-bottom: 15px;
+		}
+
+		.footer-section input[type="email"] {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+
+		.footer-section button {
+			width: 100%;
+			margin-left: 0;
+		}
+
+		.social-icons {
+			justify-content: flex-start;
+			flex-wrap: wrap;
+		}
+	}
+
+	/* Quick quote form styling */
+	.quote-form {
+		background: white;
+		padding: 40px;
+		border-radius: 15px;
+		box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+		margin: 40px auto;
+		max-width: 600px;
+	}
+
+	.form-group {
+		margin-bottom: 20px;
+	}
+
+	.form-group label {
+		display: block;
+		margin-bottom: 5px;
+		font-weight: 600;
+		color: #333;
+	}
+
+	.form-group input,
+	.form-group select,
+	.form-group textarea {
+		width: 100%;
+		padding: 12px;
+		border: 1px solid #ddd;
+		border-radius: 8px;
+		font-size: 16px;
+		transition: border-color 0.3s ease;
+	}
+
+	.form-group input:focus,
+	.form-group select:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: #667eea;
+	}
+</style>
+</body>
 </html>
