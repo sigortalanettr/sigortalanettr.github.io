@@ -216,23 +216,6 @@
         <input type="text" name="fullName" required>
       </div>
       <div class="form-group">
-        <label>*Plaka</label>
-        <input type="text" name="plate" required>
-      </div>
-      <div class="form-group">
-        <label>*Teklif Tipi</label>
-        <select name="quoteType" required>
-          <option value="">Seçiniz</option>
-          <option value="Yeni Tescil">Yeni Tescil</option>
-          <option value="Yenileme">Yenileme</option>
-          <option value="Sıfır Araç">Sıfır Araç</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>*Belge Seri No (Örnek: AA-123456)</label>
-        <input type="text" name="documentSeries" required>
-      </div>
-      <div class="form-group">
         <label>*Telefon Numarası</label>
         <input type="tel" name="phone" required>
       </div>
@@ -240,6 +223,50 @@
         <label>*TC Kimlik No</label>
         <input type="text" name="tcNumber" required>
       </div>
+      <div class="form-group">
+        <label>*Plaka</label>
+        <input type="text" name="plate" required>
+      </div>
+      <div class="form-group">
+        <label>*Teklif Tipi</label>
+        <select name="quoteType" id="quoteTypeSelect" required>
+          <option value="">Seçiniz</option>
+          <option value="Yenileme">Yenileme</option>
+          <option value="Yeni Tescil">Yeni Tescil</option>
+          <option value="Sıfır Araç">Sıfır Araç</option>
+        </select>
+      </div>
+
+      <!-- Fields for Yenileme and Yeni Tescil -->
+      <div class="form-group conditional-field" id="documentSeriesGroup" style="display: none;">
+        <label>*Belge Seri No (Örnek: AA-123456)</label>
+        <input type="text" name="documentSeries" id="documentSeries">
+      </div>
+
+      <!-- Fields for Sıfır Araç -->
+      <div class="conditional-field" id="newCarFields" style="display: none;">
+        <div class="form-group">
+          <label>*Aracın Markası</label>
+          <input type="text" name="carBrand" id="carBrand">
+        </div>
+        <div class="form-group">
+          <label>*Aracın Modeli</label>
+          <input type="text" name="carModel" id="carModel">
+        </div>
+        <div class="form-group">
+          <label>*Aracın Model Yılı</label>
+          <input type="text" name="carYear" id="carYear">
+        </div>
+        <div class="form-group">
+          <label>*Motor Numarası</label>
+          <input type="text" name="engineNumber" id="engineNumber">
+        </div>
+        <div class="form-group">
+          <label>*Şasi Numarası</label>
+          <input type="text" name="chassisNumber" id="chassisNumber">
+        </div>
+      </div>
+
       <div class="form-group">
         <label class="checkbox-label">
           <input type="checkbox" name="userAgreement" required>
@@ -256,7 +283,6 @@
     </form>
   </div>
 </div>
-
 <!-- Footer -->
 <footer id="contact">
   <div class="container">
@@ -336,6 +362,23 @@
     <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Anladım</button>
   </div>
 </div>
+<div id="toast" style="
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+"></div>
 
 <script>
   // Mobile Menu Toggle
@@ -356,6 +399,7 @@
       }
     });
   });
+
   // FAQ Toggle
   document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', function() {
@@ -432,11 +476,6 @@
     document.body.classList.add('loaded');
   });
 
-  // Initialize EmailJS
-  (function(){
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-  })();
-
   // Quote Modal Functions
   function openQuoteModal() {
     document.getElementById('quoteModal').style.display = 'block';
@@ -446,14 +485,71 @@
     document.getElementById('quoteModal').style.display = 'none';
   }
 
-  // Event Listeners for Quote Form
+  // Handle Quote Type Change - NEW FUNCTION
+  function handleQuoteTypeChange() {
+    const quoteType = document.getElementById('quoteTypeSelect').value;
+    const documentSeriesGroup = document.getElementById('documentSeriesGroup');
+    const newCarFields = document.getElementById('newCarFields');
+    const documentSeries = document.getElementById('documentSeries');
+    const carBrand = document.getElementById('carBrand');
+    const carModel = document.getElementById('carModel');
+    const carYear = document.getElementById('carYear');
+    const engineNumber = document.getElementById('engineNumber');
+    const chassisNumber = document.getElementById('chassisNumber');
+
+    // Hide all conditional fields first
+    documentSeriesGroup.style.display = 'none';
+    newCarFields.style.display = 'none';
+
+    // Remove required attributes
+    documentSeries.required = false;
+    carBrand.required = false;
+    carModel.required = false;
+    carYear.required = false;
+    engineNumber.required = false;
+    chassisNumber.required = false;
+
+    // Show appropriate fields based on selection
+    if (quoteType === 'Yenileme' || quoteType === 'Yeni Tescil') {
+      documentSeriesGroup.style.display = 'block';
+      documentSeries.required = true;
+    } else if (quoteType === 'Sıfır Araç') {
+      newCarFields.style.display = 'block';
+      carBrand.required = true;
+      carModel.required = true;
+      carYear.required = true;
+      engineNumber.required = true;
+      chassisNumber.required = true;
+    }
+  }
+
+  // Main DOMContentLoaded Event - UPDATED
   document.addEventListener('DOMContentLoaded', function() {
+    // Add event listener for quote type change - NEW
+    document.getElementById('quoteTypeSelect').addEventListener('change', handleQuoteTypeChange);
+
+    // Generate year options - NEW
+    const yearSelect = document.getElementById('carYear');
+    const currentYear = new Date().getFullYear();
+    for (let year = currentYear; year >= 2000; year--) {
+      const option = document.createElement('option');
+      option.value = year;
+      option.textContent = year;
+      yearSelect.appendChild(option);
+    }
+
     // Open modal when clicking quote buttons
-    document.querySelectorAll('a[href="#quote"], .btn-primary').forEach(button => {
+    document.querySelectorAll('a[href="#quote"]').forEach(button => {
       button.addEventListener('click', function(e) {
         e.preventDefault();
         openQuoteModal();
       });
+    });
+
+    // Separate handler for the hero button
+    document.querySelector('.hero .btn-primary').addEventListener('click', function(e) {
+      e.preventDefault();
+      openQuoteModal();
     });
 
     // Close modal
@@ -466,34 +562,83 @@
       }
     });
 
-    // Handle form submission
+    function showToast(message, duration = 3000) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.style.visibility = 'visible';
+      toast.style.opacity = '1';
+      toast.style.bottom = '50px';
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.bottom = '30px';
+        setTimeout(() => {
+          toast.style.visibility = 'hidden';
+        }, 500);
+      }, duration);
+    }
+
+
+    // Initialize EmailJS - UPDATE WITH YOUR KEY
+    emailjs.init("ts60G6Ogzh9sfBav6"); // Replace with your actual EmailJS public key
+
     document.getElementById('quoteForm').addEventListener('submit', function(e) {
       e.preventDefault();
+      console.log('Form submitted!');
 
       const formData = new FormData(this);
       const now = new Date();
-      const timeString = now.toLocaleString('tr-TR'); // Turkish date format
+      const timeString = now.toLocaleString('tr-TR');
+      const quoteType = formData.get('quoteType');
 
-      const templateParams = {
+      // Base template parameters
+      let templateParams = {
         fullName: formData.get('fullName'),
-        plate: formData.get('plate'),
-        quoteType: formData.get('quoteType'),
-        documentSeries: formData.get('documentSeries'),
         phone: formData.get('phone'),
         tcNumber: formData.get('tcNumber'),
+        plate: formData.get('plate'),
+        quoteType: quoteType,
         time: timeString
       };
-      emailjs.init("ts60G6Ogzh9sfBav6");
 
-      emailjs.send('service_mzhx68v', 'template_xnoys29', templateParams)
+      // Choose template ID based on quote type
+      let templateId;
+
+      if (quoteType === 'Yenileme' || quoteType === 'Yeni Tescil') {
+        templateParams.documentSeries = formData.get('documentSeries');
+        templateParams.carBrand = '';
+        templateParams.carModel = '';
+        templateParams.carYear = '';
+        templateParams.engineNumber = '';
+        templateParams.chassisNumber = '';
+        templateId = 'template_xnoys29'; // Replace with your actual template ID for Yenileme/Yeni Tescil
+      } else if (quoteType === 'Sıfır Araç') {
+        templateParams.carBrand = formData.get('carBrand');
+        templateParams.carModel = formData.get('carModel');
+        templateParams.carYear = formData.get('carYear');
+        templateParams.engineNumber = formData.get('engineNumber');
+        templateParams.chassisNumber = formData.get('chassisNumber');
+        templateParams.documentSeries = '';
+        templateId = 'template_qodlccc'; // Replace with your actual template ID for Sıfır Araç
+      }
+
+      console.log('Template params:', templateParams);
+      console.log('Sending email with template:', templateId);
+
+      // Send email
+      emailjs.send('service_mzhx68v', templateId, templateParams)
               .then(function(response) {
-                alert('Teklifiniz başarıyla gönderildi!');
+                console.log('Email sent successfully:', response);
                 closeQuoteModal();
                 document.getElementById('quoteForm').reset();
+                handleQuoteTypeChange(); // Reset conditional fields visibility
+                showToast('Teklifiniz başarıyla gönderildi!');
               }, function(error) {
-                alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+                console.error('Email send failed:', error);
+                showToast('Bir hata oluştu. Lütfen tekrar deneyin.', 4000);
               });
     });
+
   });
 </script>
 </body>
