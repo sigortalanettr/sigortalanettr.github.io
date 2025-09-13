@@ -203,18 +203,18 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label class="checkbox-label">
-          <input type="checkbox" name="userAgreement" required>
-          *Kullanıcı Sözleşmesi İçeriği Okudum ve Kabul Ediyorum.
-        </label>
-      </div>
-      <div class="form-group">
-        <label class="checkbox-label">
-          <input type="checkbox" name="privacyPolicy" required>
-          *Kişisel Verilerin Korunması İçeriği Okudum ve Anladım.
-        </label>
-      </div>
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="userAgreement" required>
+                *<a href="#" onclick="openLegalDocument('mesafeli_satis_sozlesmesi')">Kullanıcı Sözleşmesi</a> İçeriği Okudum ve Kabul Ediyorum.
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="privacyPolicy" required>
+                *<a href="#" onclick="openLegalDocument('kvkk')">Kişisel Verilerin Korunması</a> İçeriği Okudum ve Anladım.
+            </label>
+        </div>
       <button type="submit" class="btn btn-primary">Teklif İste</button>
     </form>
   </div>
@@ -242,14 +242,15 @@
 
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>
-        <p>&copy; 2025 Sigortala.net.tr | Tüm Hakları Saklıdır.</p>
-      </div>
-      <div>
-        <a href="#">Gizlilik Politikası</a>
-        <a href="#">Kullanıcı Sözleşmesi</a>
-        <a href="#">Çerez Politikası</a>
+      <div class="footer-bottom">
+          <div>
+              <p>&copy; 2025 Sigortala.net.tr | Tüm Hakları Saklıdır.</p>
+          </div>
+          <div>
+              <a href="#" onclick="openLegalDocument('gizlilik_politikasi')">Gizlilik Politikası</a>
+              <a href="#" onclick="openLegalDocument('mesafeli_satis_sozlesmesi')">Kullanıcı Sözleşmesi</a>
+              <a href="#" onclick="openLegalDocument('cerez_politikasi')">Çerez Politikası</a>
+          </div>
       </div>
     </div>
   </div>
@@ -288,6 +289,43 @@
 "></div>
 
 <script>
+    // Legal Documents Functions
+    const legalDocuments = {
+        'kvkk': { title: 'KVKK Metni', file: 'kvkk.txt' },
+        'cerez_politikasi': { title: 'Çerez Politikası', file: 'cerez_politikasi.txt' },
+        'mesafeli_satis_sozlesmesi': { title: 'Mesafeli Satış Sözleşmesi', file: 'mesafeli_satis_sozlesmesi.txt' },
+        'aydinlanma_metni': { title: 'Aydınlatma Metni', file: 'aydinlanma_metni.txt' },
+        'gizlilik_politikasi': { title: 'Gizlilik Politikası', file: 'gizlilik_politikasi.txt' }
+    };
+
+    function openLegalDocument(docType) {
+        const doc = legalDocuments[docType];
+        if (!doc) return;
+
+        document.getElementById('legalTitle').textContent = doc.title;
+        document.getElementById('legalModal').style.display = 'block';
+
+        // Load the document content
+        loadLegalContent(doc.file);
+    }
+
+    function loadLegalContent(filename) {
+        fetch(filename)
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('legalContent').innerHTML = text.replace(/\n/g, '<br>');
+            })
+            .catch(error => {
+                document.getElementById('legalContent').innerHTML = 'Belge yüklenirken bir hata oluştu.';
+                console.error('Error loading legal document:', error);
+            });
+    }
+
+    function closeLegalModal() {
+        document.getElementById('legalModal').style.display = 'none';
+    }
+
+
   // Mobile Menu Toggle
   document.querySelector('.mobile-toggle').addEventListener('click', function() {
     document.querySelector('.nav-menu').classList.toggle('active');
@@ -432,6 +470,20 @@
 
   // Main DOMContentLoaded Event - UPDATED
   document.addEventListener('DOMContentLoaded', function() {
+
+      const closeLegalBtn = document.querySelector('.close-legal');
+      if (closeLegalBtn) {
+          closeLegalBtn.addEventListener('click', closeLegalModal);
+      }
+
+      const legalModal = document.getElementById('legalModal');
+      if (legalModal) {
+          legalModal.addEventListener('click', function(e) {
+              if (e.target === this) {
+                  closeLegalModal();
+              }
+          });
+      }
     // Add event listener for quote type change - NEW
     document.getElementById('quoteTypeSelect').addEventListener('change', handleQuoteTypeChange);
 
@@ -544,9 +596,24 @@
                 console.error('Email send failed:', error);
                 showToast('Bir hata oluştu. Lütfen tekrar deneyin.', 4000);
               });
+
+
     });
+
 
   });
 </script>
+<!-- Legal Documents Modal -->
+<div class="legal-modal" id="legalModal">
+    <div class="legal-modal-content">
+        <div class="legal-modal-header">
+            <h2 id="legalTitle">Belge Başlığı</h2>
+            <button class="close-legal">&times;</button>
+        </div>
+        <div class="legal-modal-body" id="legalContent">
+            <!-- Content will be loaded here -->
+        </div>
+    </div>
+</div>
 </body>
 </html>

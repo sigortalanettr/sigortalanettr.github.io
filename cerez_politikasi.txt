@@ -1,0 +1,56 @@
+
+Şirket olarak sahip olduğumuz www.sigortala.net.tr internet sitemizin ziyaretçilerinin gizlilik ve kişisel verilerinin korunması haklarını gözeterek ziyaretçilerimize daha iyi bir hizmet deneyimi sağlayabilmek için kişisel verileri işlemekte ve çerezleri kullanmaktayız. Bu Çerez Kullanımı Politikası İnternet Sitesi ziyaretçilerimize ve kullanıcılarımıza hangi tür çerezlerin hangi koşullarda kullandığını açıklamaktadır. Çerezler aracılığı ile kişisel veri toplanabilir. Kişisel verilerinizin işlenmesine dair detaylı bilgilere Aydınlatma Metni’nden ulaşabilirsiniz
+
+
+Reşit Olmayanlar
+18 yaşın altındaysanız İnternet Sitemizi ebeveynlerinizin refakati olmadan ziyaret etmemelisiniz. Ebeveynlerinizin refakati olmadan İnternet Sitemizi kullanmamanız ve kişisel verilerinizi paylaşmamanız gerekmektedir.
+
+
+Çerez Nedir?
+Çerezler ziyaret ettiğiniz internet siteleri tarafından tarayıcılar aracılığıyla bilgisayarınıza ya da akıllı telefon veya tablet gibi diğer cihazlarınıza kaydedilen ve genelde harf ve rakamlardan oluşan çok küçük veri depolama dosyalardır. Bu veri depolama dosyalarında İnternet Sitemize yapmış olduğunuz ziyaretinize ait bilgiler saklanır. Çerezler  ziyaret edilen internet sitesinin düzgün bir şekilde çalışmasını ve geliştirilmesini, kullanıcı deneyiminin kişiselleştirilmesini ve iyileştirilmesini, sağlar.
+
+
+Sitemizde Kullanılan Çerez Türleri Nelerdir?
+Ana kullanım amacı kullanıcılara kolaylık sağlamak olan çerezler, temel olarak 4 ana grupta toplanmaktadır:
+
+
+Zorunlu/Teknik Çerezler: Ziyaret ettiğiniz internet sitesinin düzgün ve hatasız şekilde çalışabilmesi için zorunlu çerezlerdir. Bu tür çerezlerin amacı, sitenin çalışmasını sağlamak yoluyla gerekli hizmet sunmaktır.
+Analitik Çerezler: İnternet sitesinin kullanım şekli, ziyaret sıklığı ve sayısı, hakkında bilgi toplayan ve ziyaretçilerin siteye nasıl geçtiğini gösterirler. Bu tür çerezlerin kullanım amacı, sitenin işleyiş biçimini iyileştirerek performans arttırmaktır.
+İşlevsel/Fonksiyonel Çerezler: Ziyaretçinin site içerisinde yaptığı seçimleri kaydederek bir sonraki ziyarette seçeneklerin hatırlatılmasını sağlayan çerezlerdir. Bu tür çerezlerin amacı ziyaretçilere kullanım kolaylığı sağlamaktır.
+Hedefleme/Reklam Çerezleri: Ziyaretçilere sunulan reklamların etkinliğinin ölçülmesi ve kaç kere izlendiğinin hesaplanmasını sağlarlar. Bu tür çerezlerin amacı, ziyaretçilerin ilgi alanlarına özelleştirilmiş reklamların sunulmasıdır.
+
+Saklandığı süre bakımından çerez türleri ise temel olarak 2 ana grupta toplanmaktadır ;
+
+
+Kalıcı Çerezler: Kişinin bilgisayarında belirli bir tarihe veya kullanıcı tarafından silinene kadar varlığını sürdüren çerezlerdir. Bu çerezler, çoğunlukla kullanıcıların site hareketlerini ve tercihlerini ölçmek amacıyla kullanılır.
+Oturum Çerezleri: Bu çerezler kullanıcının ziyaretini oturumlara ayırmak için kullanılır ve kullanıcıdan veri toplamaz. Çerez, kullanıcı ziyaret ettiği web sayfasından ayrıldığında silinir.
+
+
+4.Çerezleri Neden Kullanmaktayız?
+
+
+Ziyaret ettiğiniz internet sitemizi kullanmanız sırasında size kişiselleştirilmiş bir deneyim sunmak, sunulan hizmetleri geliştirmek ve deneyiminizi iyileştirmek ve kullanım kolaylığı sağlamak amacı için kullanmaktayız. İlgi alanlarınıza ve size daha iyi hizmet sunabilmek, İnternet Sitemizin işlevselliğini arttırmak, aynı zamanda internet sitesinin çalışması için gerekli temel fonksiyonları gerçekleştirmek amacıyla çerezlerden faydalanmaktayız.
+
+
+Çerezleri Nasıl Yönetebilirsiniz?
+
+Birçok internet tarayıcısı, varsayılan çerezleri otomatik olarak kabul etmeye ayarlıdır. Birçok tarayıcı çerezleri kontrol edebilmeniz için size çerezleri kabul etme veya reddetme, yalnızca belirli türdeki çerezleri kabul etme ya da bir internet sitesinin cihazınıza çerez depolamayı talep ettiğinde tarayıcı tarafından uyarılma seçeneği sunar. Bu ayarları, çerezleri engelleyecek veya cihazınıza çerez gönderildiğinde uyarı verecek şekilde değiştirebilirsiniz. Aynı zamanda, daha önce tarayıcınıza kaydedilmiş çerezlerin silinmesi de mümkündür. Çerezleri devre dışı bırakır veya reddederseniz, İnternet Sitemizdeki bazı özelliklerin ve hizmetlerin düzgün çalışamayabileceğini hatırlatmak isteriz. Çerezlerin kullanımına ilişkin tercihlerinizi değiştirmek ya da çerezleri engellemek veya silmek için tarayıcınızın ayarlarını değiştirmeniz yeterlidir.
+
+Aşağıda farklı internet tarayıcıları üzerinden çerezlerin kullanılmasını engellemek için hangi adımların izlenmesi gerektiğine ilişkin bilgiler yer almaktadır.
+
+
+Google Chrome: Tarayıcınızın sağ üstünde bulunan “Ayarlar” bölümünde yer alan “Gizlilik ve Güvenlik” başlığı altındaki “Çerezler ve Site Verileri” sekmesinden çerezlere izin verebilir veya bloke edebilirsiniz.
+
+
+Internet Explorer: Tarayıcınızın sağ üstünde bulunan “Araçlar” bölümünde yer alan “Güvenlik” sekmesine tıklayın ve çerez yönetiminizi yapabilirsiniz.
+
+
+Mozilla Firefox: Tarayıcınızın sağ üstünde yer alan “menüyü aç” sekmesinin altında “Seçenekler bölümüne tıklayınız. “Gizlilik ve Güvenlik” butonunu kullanarak çerez tercihinizi yapabilirsiniz.
+
+
+Microsoft Edge: Tarayıcınızın sağ üst köşesinden üç nokta işareti olan bölümünde Ayarlar bölümünde yer alan Gizlilik seçeneğinden Tarama verilerini temizleyebilirsiniz
+
+
+Safari: Telefonunuzun “Ayarlar” bölümünden “safari” sekmesini seçip, “Gizlilik ve Güvenlik” Bölümünden tüm çerez yönetiminizi sağlayabilirsiniz.
+
+
